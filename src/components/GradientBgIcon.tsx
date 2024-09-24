@@ -1,56 +1,45 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { COLORS, SPACING } from '../theme/theme';
-import CustomIcons from './customIcons';
+import {COLORS, SPACING} from '../theme/theme';
+import CustomIcon from './CustomIcon';
 
-interface gradientBgIconProps{
-  name:string;
-  color:string;
-  size:number;
+interface GradientBGIconProps {
+  name: string;
+  color: string;
+  size: number;
 }
 
-const GradientBgIcon: React.FC<gradientBgIconProps> = ({name,color,size}) => {
+const GradientBGIcon: React.FC<GradientBGIconProps> = ({name, color, size}) => {
   return (
-    <View style = {styles.mainviewcontainer}>
+    <View style={styles.Container}>
       <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x:1, y: 1}}
-      colors={[COLORS.primaryGreyHex,COLORS.primaryBlackHex]}
-      style={styles.linearGradientStyle} >
-        
-        <CustomIcons 
-        name = {name}
-        color={color}
-        size={size}>
-
-        </CustomIcons>
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 1}}
+        colors={[COLORS.primaryGreyHex, COLORS.primaryBlackHex]}
+        style={styles.LinearGradientBG}>
+        <CustomIcon name={name} color={color} size={size} />
       </LinearGradient>
     </View>
-  )
-}
-
-export default GradientBgIcon
+  );
+};
 
 const styles = StyleSheet.create({
-
-  mainviewcontainer:{
-    borderWidth:2,
-    borderColor:COLORS.primaryDarkGreyHex,
-    borderRadius:SPACING.space_12,
+  Container: {
+    borderWidth: 2,
+    borderColor: COLORS.secondaryDarkGreyHex,
+    borderRadius: SPACING.space_12,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:COLORS.secondaryDarkGreyHex,
+    backgroundColor: COLORS.secondaryDarkGreyHex,
     overflow: 'hidden',
-
   },
-
-  linearGradientStyle:{
-    height:SPACING.space_36,
-    width:SPACING.space_36,
-    alignItems:"center",
-    justifyContent:"center",
-
+  LinearGradientBG: {
+    height: SPACING.space_36,
+    width: SPACING.space_36,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
+});
 
-})
+export default GradientBGIcon;

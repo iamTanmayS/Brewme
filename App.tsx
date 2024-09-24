@@ -7,9 +7,11 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import Customicons from './src/components/customIcons';
+import CustomIcon from './src/components/CustomIcon';
 import PaymentScreen from './src/screens/PaymentScreen';
-import TabNavigator from './src/navigation/TabNavigator';
+import TabNavigator from './src/navigators/TabNavigator';
+import DetailsScreen from './src/screens/DetailsScreen';
+import CartScreen from './src/screens/CartScreen';
 
 
 const stack = createNativeStackNavigator()
@@ -30,6 +32,10 @@ function App(): React.JSX.Element {
         <stack.Screen name="paymentscreen" 
                       component={PaymentScreen}
                       options={{animation:"slide_from_bottom"}} />
+        <stack.Screen name="detailscreen" 
+                      component={DetailsScreen}
+                      options={{animation:"slide_from_bottom"}} />
+        
         
 
       </stack.Navigator>
